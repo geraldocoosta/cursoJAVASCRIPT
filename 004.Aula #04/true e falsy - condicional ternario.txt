@@ -1,0 +1,41 @@
+valor truthy -> todo valor que convertido em booleano é true
+outra definição é: é um valor que se traduz em verdadeiro quando avaliado em um contexto Booleano.
+todo valor é truthy a menos que sejam definidos falsy(ou seja., exceto para false, 0, -0, "", null, undefined, e NaN)
+
+valor falsy -> todo valor que convertido em booleano é representado por false
+valores que retornam false (0,-0,'',"",null, undefined e NaN ) 
+
+Descobrir a representação booleana sem o if-else
+!! -> duas vezes o sinal de exclamação
+pq? a exclamação vai converter o proximo valor pra booleano e inverter o valor, com duas exclamações, vai converter e inverter e interter de novo
+
+============================================================
+
+Condicional Ternario
+condição ? true : false; 
+substitui o if, em uma linha
+(2 > 5) ? 'verdadeirissimo':'bem falso';
+vai imprimir bem falso
+
+============================================================
+
+Escopo de váriaveis:
+no js existe o escopo global e escopo local
+declarar uma váriavel na parte mais alta do código, fora de função, ela esta no escopo global
+se declarar uma váriavel dentro de uma function, é criada uma função de escopo local
+escopo global no js -> problema em algumas vezes
+function -> cria escopo local
+Se eu criar uma variavel dentro da function, não posso acessar ela de fora da function
+Se eu criar uma variavel fora da function, eu posso acessar ela de dentro de uma 
+JavaScript também tem garbage collector, coleta de lixo que funciona mais ou menos assim:
+Quando é criada um váriavel local, ela só aparece quando a função é invocada, e se ela não aparecer mais em local nenhum, o JS joga essa variavel fora (elimina da memoria)
+
+importante, sempre use a palavra chave -> var
+dá pra criar sem usar a palavra chave var, quando não é usado a palavra chave var, o JS entende que a váriavel esta sendo criada no escopo global
+
+Ou seja, posso criar váriaveis de escopo global dentro de uma function, que supostamente só deveria criar variaveis de escolo local xD
+
+Problema de usar váriaveis globais -> o Js não consegue usar o Garbage Collector em váriaveis de escopo global, ai fode o role, enche a mémoria se a variavel tiver apontada para um objeto grande, fora o conflito de nomes, ter que controlar apontamento
+É bom também para identificar a criação de variavel no olhometro, aquela famosa olhadinha no código, é bem nice
+
+Parametros de função também são locais, então pode ficar relaxo que é bem nice

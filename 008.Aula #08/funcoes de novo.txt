@@ -1,0 +1,70 @@
+sempre nomear as function
+em vez de 
+var func = function(){}
+
+fazer
+var func = function func(){}
+
+pq gege?
+debug melhor pelo visto
+consegue obter o nome
+
+funções são objetos
+tem método imbutidos
+Como a função name, que retorna o nome da função
+Quando não invocamos uma function, podemos não usar o () e chamar os métodos imbutidos nela
+No momento atual em que estou usando o bagulho do node, ta retornando o nome sim, porém vou seguir a boa pratica pelo role play
+lembre também da função length e push no array
+
+programação funcional
+
+forma de programar baseada em funções ou em caracteristicas que as funções tem
+Para programar baseado em funções, a lp deve fornecer alguns recursos como:
+Objetos(Cidadãos,Funções) de primeira classe -> JS TEM
+Funções tem mesmo tratamento de objetos em Js, ou seja, tudo que da pra fazer com objetos, da pra fazer com função, pois função É um objeto
+isso permite trabalhar de forma funcional em JS
+funções e objetos literais
+aqueles que eu aprendi
+var obj = {blabla:"bla", pipi:"popopo"}
+var func = function func(){};
+
+pode-se retornar também funções de outras funções
+Se uma função retorna um obj, também pode retornar outra função, pq função é obj
+pode-se fazer isso
+ex.:
+function adder(x){
+	return function otherFunc(y){
+		return x + y;
+	};
+}
+
+Como vou usar essa function?
+lembre que, ao chamar adder(param), vai ser retornado uma função, Certo?!
+então é só colocar outro () com o param esperado pela function interna
+ou seja: adder('pipipopo')('blabla')
+nesse caso, o retorno ia ser um concatenação das duas strings
+Se eu passa-se dois numbers, o retorno é a soma
+Podemos criar função dentro de outra função também
+quando retornamos uma função de outra função, essa mais interna não é mais literal, logo tem que terminar com >>>;<<< (ponto e virgula)
+Essa eu sinceramente não sabia! 
+Só consigo fazer isso com linguagens que dão poder de utilizar funções de primeira classe 
+
+Como passar funções por param
+Exemplo:
+function showOtherFunction(func){
+	return func();
+}
+ou seja, posso passar uma função bolada
+showOtherFunction(function(){
+	return "Gege é brabo";
+})
+
+observe com atenção a lógica
+uma função retorna a ativação de outra função
+quando passei a outra função como argumento, a primeira executou a segunda e retornou o que foi predefinido
+Veja que passei outra função mas não usei o () para invocala, quem invocou foi a propria function
+
+
+Obs.: Se eu criar uma função nomeada, sem atribuir ela a uma variavel, eu posso atribuir depois
+var teste = showOtherFunc;
+Só basta lembrar não devo passar a ativação da function, se não vai retornar o valor (obviamente) e sim o nome

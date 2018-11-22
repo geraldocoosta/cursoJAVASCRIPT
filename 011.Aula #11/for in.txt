@@ -1,0 +1,20 @@
+O for in basicamente itera sobre as propriedades de um ob
+ex.: 
+
+var obj = {
+  prop1:"caixa",
+  prop2:"cachorro",
+  prop3:"cavaco"
+}
+
+for (var qualquerCoisa in obj){
+  consolo.log(qualquerCoisa);
+}
+
+//output: prop1, prop2, prop3
+
+da pra iterar os objetos com o in, com o of ou da seguinte maneira
+
+for (var qualquerCoisa in obj){
+  consolo.log(obj[qualquerCoisa]);
+}

@@ -1,0 +1,50 @@
+O VELHO PAPO SOBRE REGEX
+
+pra que servem? manipular strings, ou encontrar strings
+É bem poderoso
+YEAH!! 
+expressão regular é um tipo primitivo em JS (?????????????)
+
+~~
+É CASE SenSiTive
+Em js, a regex fica entre barras (?????????????)
+depois das barras, podemos colocar algumas flags
+por exemplo, o g é de global, se usar normal, só trás o primeiro resultado
+Para ignorar o case, flag i de ignore case
+flags podem ser usadas em conjunto, e aparentemente são usadas depois das barras que envolvem o regex
+
+Existe um objeto chamado RegExp() que funciona basicamente como os outros objetos wrapper
+
+podemos associar uma expressão regular a uma váriavel normalmente, como:
+
+var regex = /m/;
+
+Esse é o formato literal de expressão regular
+
+como fazer o match?
+
+crie uma váriavel normal com o texto
+
+var texto = 'lorem ipsulum da o cu';
+
+As strings tem uma propriedade chamada match() que tenta fazer o encontro de um texto com uma função regular passada por parametro
+acertei, a flag é passada depois da barra envolvente, YEAH!
+
+ex de uso:
+
+texto.match(/l/gi); // retorna um array com tudo encontrado
+
+quando o texto não é encontrado, um null é retornado
+
+~~
+
+Aquele velho papo
+
+\w -> caracteres alfanumericos e _
+\d -> digitos
+
+Para chamar mais de um digito
+texto.match(\/d/d\);
+
+para o ou, tem o | (pipe)
+texto.match(\/d|/w\)

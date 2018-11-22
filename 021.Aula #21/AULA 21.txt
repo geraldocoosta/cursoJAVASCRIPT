@@ -1,0 +1,15 @@
+Sync vs Async
+Antes de continuar com eventos, preciso aprender sobre como o javascript trabalha com Sync e Async
+
+O funcionamento procedural do js é sincrono, uma função atrás da outra
+Se executarmos os seguintes comandos
+
+var i = 0;
+console.log(i);
+for ( var i = 1; i < 1000 ; i++){
+  console.log(i);
+}
+i = 11;
+console.log(i);
+
+A navegação da aplicação ficará bloquiada até essa instrução ser completada 

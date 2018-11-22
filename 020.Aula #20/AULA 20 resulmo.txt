@@ -1,0 +1,43 @@
+Só pra relembrar
+Ultima aula vimos como o browser organiza o html e pendura eles no objeto document
+Vimos o q é document object model (dom)
+vimos como buscar esse elementos com os métodos
+document.getElementById('stringID');
+document.getElementsByClassName('stringClass');
+document.getElementsByTagName('stringTag');
+Os métodos getElementsByAlgo retornou um arraylike dinamico. (pode ser bem ruim)
+
+document.querySelector() e document.querySelectorAll();
+Também buscam por elementos do documento, porém retornam um arraylike não dinamico, além de buscarem usando o seletor css como paramêtro *Estudar mais seletores Css*
+
+Podemos instanciar campos e botões à váriaveis, que seguindo norma, começam com $.
+Podemos acessar o valor delas pelo atributo de obj value
+
+vimos o método event.preventDefault() que impede a ação padrão de um elemento de um formulario html.
+como adicionar eventos em um elemento via addEventListener()
+Vimos que o método addEventListener pode ser associado a qualquer elemento do document, e que este método recebe 3 argumentos, por exemplo
+
+tendo um botão no html:
+
+<html>
+<head><title>Exemplo<title></head>
+<body>
+  <form>
+    <input type="submit">YEAH</input>
+  <form>
+</body>
+</html>
+
+posso fazer isso no script
+
+var $button = document.querySelector('[type="submit"]'); // usando querySelector com seletor css
+
+$button.addEventListner('click',function(event){},false); // primeiro param, evento para uma ação
+// segundo param, função de callback(retorno), o que será feito quando aquela função for executada
+// terceiro argumento, não sei, só to passando false para sempre
+
+Como passar parametros para uma IIFE
+métodos da window 
+prompt() - recebe texto
+alert() - mensagem apenas
+confirm() - ok cancelar

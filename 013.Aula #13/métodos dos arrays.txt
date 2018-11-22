@@ -1,0 +1,116 @@
+Arrays
+Arrays são objetos disfarçados
+As keys são os indices, 1 2 3 4 5 6 7
+
+toString em arrays parece o join
+mais o join você pode definir o separador, toString não pode
+Cada objeto tem seu toString
+
+~~
+
+concat() em arrays
+Retorna um array com um item concatenado, não muda o array original
+se concatenar dois arrays, ele retorna um array com todos os membros dos 2 arrays
+diferente do push, pois o push além de modificar o array, coloca um segundo array passado na ultima posição do primeiro
+Com concat, os itens são distribuidos
+
+~~
+
+unshift() -> adiciona um elemento no começo e retorna o novo length
+
+~~
+
+slice() -> retorna pedaço do array 
+primeiro param -> indice
+segundo param -> indice + 1
+
+~~
+
+push() -> adiciona no final
+
+~~
+
+pop() tira do final
+
+~~
+
+slice() -> retorna um subarray
+primeiro param -> indice
+segundo param -> indice +1
+Esse subarray não é um reflexo do array antigo, mudança em um não afeta o outro
+
+passando só um indice, ele pega do indice passado no primeiro param até o ultimo elemento do array
+
+Da pra usar passando argumentos negativos, em que ele começa do final do array e vai voltando
+
+ele pega o length e diminui pelo argumento negativo passado
+
+se passar valor invalido, ele retorna um array vazio
+~~
+
+splice() -> splice modifica o array principal adicionando ou removendo itens do array
+1 param do método slice especifica o indice onde deve ocorrer uma inclusão ou exclusão de itens desse array
+Passado só um argumento, o splice retorna o array do indice passado até o final, modificando o array de origem, que fica do indice 0 até o array passado
+
+para remover itens no meio do array, o primeiro param é o indice onde começaremos a remover, o segundo param é quantos itens vamos remover
+ele retorna essa parte removida
+a sobra permanesce no array original
+
+se passar mais de 2 parametros, ele adiciona itens a partir do primeiro indice
+Se comporta da seguinte forma
+passa um param para começar o adição ou remoção,
+segundo param, quantos itens vai excluir? pode-se passar 0
+depois desses dois param, itens serão adicionados
+
+o Item que estava na posição que foi passada no primeiro parametro é 'empurrado'
+
+Aparentemente podemos adicionar e remover ao mesmo tempo, bagui é loucasso de todinho sem balançar
+~~
+
+forEach() -> método que funciona como uma estrutura de repetição for, porém mais elegante
+
+forEach recebe uma function como atributo, e essa function pode receber 3 params
+primeiro param e o item do array, segundo parametro é o indice e o terceiro é o proprio array
+
+Mais recomendado por seu desempenho e reutilidade
+
+segundo e terceiro indices são opcionais
+
+~~
+
+every()
+
+aplica uma função, o retorno dessa função - que é baseado no parametro ou item do array -  retorna true ou false
+ou seja, retorna sempre true ou false baseado na função que você passa por parametro
+
+exemplo para o entendimento dessa porra
+
+dado o seguinte array
+var arr = [1,2,5,4,7,8,9,6,5,4,8,5,6,98];
+var every = arr.every(function(item){
+	return item % 2 == 0;
+});
+console.log(every); // output false
+Dado um array de items, ele retorna true se todos os items desse array retornarem true dado a função que o método every recebe por parametro, caso contrario, retorna false
+item dentro da função passada para o every é o item do array, provavelmente tem index e array tbm
+
+every então é usado para testar todos itens de um array, se todos passarem, true, se não, false
+
+~~
+
+some() -> basicamente faz o que o every, porém ao contrario
+Só retorna false se todos os elementos forem false
+
+~~
+
+Mais métodos
+
+map() -> esse método recebe uma function por parametro, e essa function recebe por parametro 3 paramestros, os mesmos do forEach, que são item, index e array
+
+o map me parece um filtro, retorna um array do mesmo tamanho, porém só com os itens que foram retornados, de acordo com sua vontade, ou modifica os itens, bro, o ceu é o limite
+
+~~
+
+filter() -> mesmo esqueminha do map e do forEach
+porém ele filtra mesmo e retorna o array de acordo com o que foi retornado
+

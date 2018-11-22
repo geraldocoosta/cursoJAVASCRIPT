@@ -1,0 +1,5 @@
+estrutura de repetição for
+for(init, condition, final-expression)
+mesmo esquema do velho e bom javinha
+
+tenho certeza que tem outras variações

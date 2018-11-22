@@ -1,0 +1,110 @@
+objetos são mutaveis
+manipulados por referência
+
+é possivel mudar o valor da propriedade de um objeto ou até mesmo deletar a propriedade
+para mudar, é só atribuir um valor diferente aquela propriedade com =
+
+para deletar, existe uma palavra reservada chamada delete
+se usa assim
+delete objeto.propriedadeDoObjeto
+Ele retorna um true se deletar
+Se a propriedade não for definida (undefined), retorna true também
+isso significa que objetos são mutaveis, podemos excluir um atributo ou acrescentar outro
+diferente de literais
+literais não são modificaveis
+
+o que significa o manipulados por referencia
+cada objeto criado é um objeto diferente
+(não há reaproveitamento de valores iguais que nem no pool de String do Java)
+Mesmo se tivermos dois objetos com propriedades iguais e com valores dessas propriedades iguais eles não serão iguais se comparados por == ou ===
+provavelmente temos que criar um método equals
+
+Como criar objetos?
+Literais -> {} criando assim, formato literal
+com construtor (usando a palavra chave new) -> new Object()
+É mais interessante usar o literal que o contrutor
+Também tem como com uma propriedade do objeto Object chamada create
+seguinte sintaxa
+var obj = Object.create() -> porém assim está retornando um erro bem legal
+
+O objeto padrão Object tem uma propriedade chamada prototype que é um prototipo de um objeto que está sendo criado, cada objeto que está sendo criado herda do prototipo do proprio objeto
+Cada objeto tem seu prototype e herda do Object.prototype
+
+var obj = Object.create(AquiPassaUmObjeto) -> o objeto que foi criado herda as propriedades do objeto "AquiPassaUmObjeto" (Achei confuso pois quando imprimimos o obj, não mostra essas propriedades herdadas, mas tudo bem)
+
+Se eu mudar um valor de uma propriedade no objeto pai, o valor daquela propriedade vai mudar também no objeto filho, mas se eu mudar uma prop no objeto filho, o valor da propriedade pai não muda (e agora, quando imprimirmos o objeto filho, vai aparecer a propriedade alterada)
+Essa situação faz os atributos se desvinculares
+Imagine a situação
+Cria obj pai 
+Cria obj filho -> var filho = Object.create(pai);
+Muda valor de uma propriedade no obj pai (mudança replicada no obj filho)
+Muda valor de uma propriedade no obj filho ( mudança não replicada, propriedade agora aparece quando imprimimos obj filho)
+Mudança nessa mesma propriedade no objeto pai também não implica mudança no objeto filho
+
+Quando modificamos o valor de uma propriedade já existente em um obj filho, é sobrescrito
+
+Quando usamos o Object.create({}) onde {} é Object, o objeto criado terá acesso a algumas propriedades e métodos, como: toString()
+
+objetos literais criado da seguinte maneira:
+var obj = {}
+ele também herda propriedas do objeto principal do js
+
+Lembrando que pra tudo isso, não estamos criando objetos iguais, e sim objetos que herdam a propriedade prototype de outro objeto, assim, já são criados com uma estrutura pré definida e populada de acordo com o objeto pai
+
+Propriedades herdadas aparecem no for..in, lembre-se disso
+
+existe um método nos objetos que herdam de Object chamada hasOwnProperty(prop1), nela, você deve passar o nome de uma propriedade do objeto para saber se essa propriedade é herdada ou do proprio objeto (propriedades sobrescritas são consideradas do proprio objeto)
+Se propriedade NÃO for herdada, retorna sim
+Propriedade herdada, retorna false
+
+================================================================================
+Métodos de objetos
+
+Object.keys(obj) -> Retorna o nome das propriedades dos objeto (não herdados, propriedades proprias) em um array - em forma de String
+exemplo.:
+var obj = {x:1,y:2}
+console.log(Object.keys(obj)); // output [ 'x','y' ]
+
+Se isso ocorrer
+var obj2 = Object.create(obj);
+obj2.x = 54;
+console.log(Object.keys(obj2)); // output [ 'x' ]
+
+~~
+
+obj.isPrototypeOf(otherObj)  -> verifica se um objeto é prototipo de outro, sendo que o objeto que é prototipo de outra é o obj pai
+Lembre que -> "obj" é o objeto base, otherObj é o objeto filho, ai retorna true!! xD
+
+~~
+
+JSON.stringify(obj) -> transforma um objeto Js em um JSON, que é um JavaScript Object Notation -> string que representa as propriedades em js
+para transformar um JSON em obj JavaScript
+JSON.parse(stringJson);
+quando você tem um objeto js e transforma em JSON, os valores function, undefined (confirmados) de um obj se transformam em null
+E só é transformado em json os valores reais de um objeto, não os herdados
+
+======================================================================================
+
+Agora arrays
+Arrays são objetos, logo tem propriedades e métodos
+como o:
+var arr = [];
+arr.push(algo); // adicionou no final do array, logo no indice 0 e retorna o tamanho que ficou o array
+arr[1] = 56;
+deve-se ter cuidado na atribuição pelo indice de um array, pois podemos deixar indices com nada neles
+Temos a propriedade length -> retorna o tamanho do array
+
+Podemos remover e retorna o item do final do array com o método pop() // comportamento de fila, podendo receber esse item em uma variavel
+
+~~
+
+método join -> junta os itens do array, devolvendo uma string separada por virgula ou pelo parametro passado(String)
+Não altera o array
+
+~~
+
+Método reverse() -> muito obvio para comentar
+
+~~
+
+método sort() -> ordena, mt obvio, mas de acordo com o q que é o canal

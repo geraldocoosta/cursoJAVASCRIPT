@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> AULA 25</title>
+</head>
+<body>
+
+	<!-- Podemos chamar métodos javascript com uma sintaxe difente, confiram 
+		comigo no replay, mas não é recomendado-->
+
+	<a href="javascript:boom()">Boom!</a> <br>
+
+	<!-- Em muitos códigos legados, posso chegar a ver esse tipo de sintaxe 
+	sendo usada, para indicar a quebra da ação padrão , pode ser o void ,0 
+	ou void(0), porém não é necessario -->
+
+	<a href="#">TEXTANDO</a><br>
+	<a href="javascript:void 0">TEXTANDO</a><br>
+	<a href="javascript:">TEXTANDO</a><br>
+
+	<!-- Também não é recomendado, porém tem formas de utilizar evento 
+	diretamente no elemento, o padrão dessa nomeclatura de eventos inline é 
+	o nome do evento com um on antes -->
+
+	<a href="javascript:" onclick="boom()"> Olha ele ai </a>
+
+	<script type="text/javascript">
+		function boom(){
+			alert("BOOOOOOOOOM SHAKALAKA");
+		}
+
+	</script>
+</body>
+</html>

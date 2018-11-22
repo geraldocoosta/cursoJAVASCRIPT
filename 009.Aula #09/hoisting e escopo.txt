@@ -1,0 +1,7 @@
+Se tu criar uma função dentro de outra função essa outra função tá tem um corpo, e não importa onde você colocar esse método, o javascript tem um mecanismo chamado hoisting, que eleva váriaveis e funções para o topo do escopo, para que eles sejam acessados por todo o corpo
+ou seja, é possivel colocar código depois de um return, por exemplo
+mover declarações
+Mas não pode ser uma expressão, se atribuir a uma váriavel, não dá certo
+
+váriaveis só ficam disponiveis depois da atribuição, mas a declaração é movida pra cima como undefined
+funções literais não atribuidas a váriaveis são movidas para o topo do escopo e ficam disponiveis para todo este

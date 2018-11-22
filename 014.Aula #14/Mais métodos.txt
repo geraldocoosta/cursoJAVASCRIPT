@@ -1,0 +1,42 @@
+Métodos
+
+reduce() -> basicamente reduz um array, o problema é como?
+não modifica o array principal e também não retorna um array
+Ele retorna um numero reduzindo todos os itens do array em um unico item
+esse método tem dois parametros
+uma função de redução e um valor inicial
+a função que a função de redução recebe alguns parametros, uma função com todo valor acumulado, o valor atual, o indice e o array
+
+ou seja, dado esse array
+var arr = [1,2,3,4,5,6];
+// usando o método reduce
+arr.reduce(function(acumulado,atual,index,array){
+	acumulado += atual;
+},0); // essa é a estrutura do método reduce
+
+podemos adicionar outros comportamentos, como acumulado * atual;
+pode ser usado com string também (com o sinal de +)
+
+~~
+
+reduceRight() -> basicamente a mesma coisa que o reduce, porém faz do final do array para o começo
+Pra numeros não muda muita coisa com a soma, mas com string ele concatena do final pro começo
+
+~~
+
+indexOf() -> procura pelo o index de um valor passado, se ele encontrar o valor, retorna o indice, se não, retorna -1
+você pode passar um segundo argumento que é um ponto de partida a partir de um indice
+
+~~
+
+lastIndexOf() -> procura pela ultima incidencia de um valor em um array
+por exemplo
+var arr = [1,2,3,4,5,6,7,8,9,1,5,5,5,1];
+arr.lastIndexOf(1); // output: 13
+arr.lastIndexOf(5); // output: 12
+
+Também tem um segundo parametro, ponto de partida em forma de indice
+
+~~
+
+Array.isArray( param ) -> retorna true ou false para identificar se o que uma variavel está referenciando é array ou não

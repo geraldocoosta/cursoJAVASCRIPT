@@ -1,0 +1,44 @@
+Começa a aula 22
+Falando sobre métodos de funções
+Já vimos as propriedades / métodos
+
+~> name ~> retorna o nome da function, ou o nome da váriavel que recebe a function (no meu js)
+
+~> length ~> numero de parametros que a function recebe
+
+~> toString() ~> retorna uma copia da function, da palavra chave function até seu } (chaves) final!  :)
+
+~> call() ~> uma outra forma de chamar uma function, sem ser pelo seu nome sendo imediatamente seguido pelo ().
+Como esse eu não sabia, devo discorrer mais sobre para a fixação do método:
+
+Imagine o seguinte cenario
+
+
+  'use strict';
+  function fazAlgoPo(paramA){
+    console.log(this.algo + " ~~> " + paramA);  
+  }
+
+
+o this dessa função será undefined, a não ser que passemos o new na frente, porém a função dessa function não é ser um contrutor, é ser realmente uma function.
+Então, essa função é inutil? não!!
+
+podemos chamar essa função pelo método call(). Com isso, passamos um objeto para esta referenciar co m o this. podemos passar também seus atributos do segundo argumento em diante. Se eu implementar uma função que não precise de um objeto, mas precisar por algum motivo utilizar o call, posso passar um null em vez de um objeto como primeiro parâmetro.
+
+Mas voltando ao exemplo anterior, para chamar aquela função, podemos usar as seguintes sintaxes:
+
+	fazAlgoPo.call({algo: "TREINODEPERNAHJ" }, 'Yeah');
+
+ou
+
+	var obj = { algo: "Qualquer coisa"};
+	fazAlgoPo.call(obj,'YEAH');
+
+pode-se passar a própria função também, que é bem legal, já que function é um obj
+
+Manjastes? 
+
+~> apply() ~> igual o call, mas em vez de passarmos os parâmetros da forma padrão, juntamos todas em um array e passamos esse array como segundo argumento
+Quando o apply é usado, o array é quebrado e cada item do array vira um argumeto (Outras palavras pra escrever outra coisa)
+
+~> ~>

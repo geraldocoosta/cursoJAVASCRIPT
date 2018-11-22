@@ -1,0 +1,45 @@
+'use strict';
+a partir do ecma script 5 surgiu o conceito de 'use strict'
+
+Como outros já disseram, o strict mode é um modo mais rigoroso de interpretação da linguagem, que proíbe certas práticas que sempre foram permitidas, mas não são recomendadas (como a criação de variáveis globais implícitas, já mencionadas em outras respostas). Como simplesmente proibir incondicionalmente esse tipo de prática quebraria códigos legados, foi decidido criar a diretiva "use strict"; para ativar o modo estrito.
+
+Existem duas maneiras de se utilizar o "use strict":
+
+No topo do arquivo, a diretiva aplica o modo estrito para o arquivo todo.
+
+Como a primeira linha de código de uma função, a diretiva aplica o modo estrito somente dentro da função (incluindo outras funções eventualmente declaradas dentro dela).
+
+~~
+
+O que é o with? serve para diminuir o tamanho de um objeto
+não é recomendado, não use
+mas a função basicamente é
+dada um objeto encadeado
+por exemplo:
+var obj = {
+	prop1 : {
+		prop2: {
+			prop3:{
+				prop31:"prop31",
+				prop32:"prop32",
+				prop33:"prop33"
+			}
+		}
+	}
+}
+
+pode-se fazer isso:
+with( obj.prop1.prop2.prop3 ){
+	console.log(prop31);
+	console.log(prop32);
+	console.log(prop33);
+}
+
+Onde a linguagem já direciona o que tá sendo chamado à aquele objeto entre parenteses
+
+É mais fácil relacionar o objeto a uma váriavel
+
+o 'use strict' impede o uso dessa declaração, pois tem performace ruim, e parece muito ruim
+
+no escopo global e dentro de funçõs, this === undefined para o use strict, ou seja
+Pelo que já foi estudado, dentro de função largada ao vento no contexto global, ou simplemente usada no contexto global, this === window. usando o use strict, this será igual a undefined

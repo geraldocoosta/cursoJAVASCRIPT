@@ -117,41 +117,56 @@
 
 	ajax.addEventListener('readystatechange',function(){
 		
-		if(this.readyState === 4 && this.status === 200){
-			result = JSON.parse(this.responseText);  
-			$carregamento.element[0].innerText = "Sucesso";
+		if(ajax.readyState === 4 && ajax.status === 200){
 			setarCampos();
-		}else if(this === 4 || this.status === 0){
-			$carregamento.element[0].innerText = "Erro na requisição";
+		}else if(ajax.readyState === 4 && ajax.status === 0){
+			setarMensagem('error');
 		}
-		
 	},false);
 
 	$botaoEnviar.on('click', handlerButton);
 
 	function setarCampos(){
+		result = JSON.parse(ajax.responseText); 
+		if (result.erro){
+			setarMensagem('error');
+			return;
+		} 	
 		$logradouro.element[0].value = result.logradouro;
 		$bairro.element[0].value = result.bairro;
 		$estado.element[0].value = result.uf;
 		$cidade.element[0].value = result.localidade;
 		$cep.element[0].value = result.cep;
+		setarMensagem('sucess');
 	}
 
 	function handlerButton(e){
 		try{
 			auxHandlerButton(e);
 		}catch(er){
-			$carregamento.element[0].innerText = "Erro na requisição";
+			setarMensagem('error');
 		}
-
 	}
 
 	function auxHandlerButton(e){
 		e.preventDefault();
-		$carregamento.element[0].innerText = "Carregando...";
-		$campoCep.element[0].value = $campoCep.element[0].value.replace(/\D/g,"");
+		setarMensagem('loading');
+		limpaCep();
 		ajax.open('GET','https://viacep.com.br/ws/' + $campoCep.element[0].value + '/json/');
 		ajax.send();
 	}
-		
+
+	function setarMensagem(situation){
+		var messages = {
+			sucess: "Endereço referente ao CEP " + limpaCep() + ":",
+			error:"Não encontramos o endereço para o CEP " + limpaCep() + ".",
+			loading:"Buscando informações para o CEP " + limpaCep() + "..."
+		}
+		$carregamento.element[0].textContent = messages[situation];
+	}
+
+	function limpaCep(){
+		return $campoCep.element[0].value = $campoCep.element[0].value.replace(/\D/g,"");
+	}
+
 })();

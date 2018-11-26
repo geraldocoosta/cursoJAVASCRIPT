@@ -40,7 +40,14 @@
     let $campoCorCarro = new DOM('[data-js="cor"]');
     let $butaoEnviar = new DOM('[data-js="enviar"]');
     let $tableCar = new DOM('[data-js="carroscadastrados"]');
+    
 
+    getURL('company.json', function(content,error){
+      if(error != null){
+        console.log('Erro na requisição ' + error);
+      }
+      setNomeETelefone(content);
+    });
 
     $butaoEnviar.on('click',function(e){
       e.preventDefault();
@@ -52,6 +59,24 @@
       setCarroInTable();
       limparCampos();
     });
+
+
+    function getURL(url,callback){
+      var req = new XMLHttpRequest();
+      req.open('GET', url);
+      req.addEventListener('readystatechange',function(){
+        if (req.readyState === 4 && req.status === 200){
+          callback(req.responseText);
+        }
+        if(req.status !== 200){
+          callback(null,new Error('Request failed' + req.statusText));
+        }
+      },false );
+      req.addEventListener('error', function(){
+        callback(null,new Error("Network error"));
+      },false);
+      req.send();
+    }
 
     function setCarroInTable(){
       let $tableRow = document.createElement('tr');
@@ -68,6 +93,16 @@
         td.appendChild(document.createTextNode(copyElement));
         return td;
       });
+    }
+
+
+    function setNomeETelefone(content){
+      let answer = JSON.parse(content);
+      let $nomeLoja = new DOM('[data-js="nomeloja"]');
+      let $telefoneLoja = new DOM('[data-js="telefoneloja"]');
+      
+      $nomeLoja.get()[0].appendChild(document.createTextNode(answer.name));
+      $telefoneLoja.get()[0].appendChild(document.createTextNode(answer.phone));
     }
 
     function populeRow(row,arrData){
@@ -98,6 +133,8 @@
       $campoPlacaCarro.value = ""; 
       $campoCorCarro.value = ""; 
     }
+
+
   }
 
   app();
